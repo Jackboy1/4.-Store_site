@@ -42,12 +42,18 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #444;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: rgb(83, 83, 174); 
 }
 
 .btn {
   color: white;
   background-color: rgb(83, 83, 174);
   border: none;
+  text-align: center;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
@@ -56,10 +62,29 @@ nav ul li a {
   padding: 0.3rem 1rem;
   border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
   background-color: rgb(54, 54, 138);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.actions i {
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.actions i:hover {
+  color: rgb(83, 83, 174); 
+  transform: scale(1.1); 
 }
 
 .hero {
@@ -83,16 +108,6 @@ nav ul li a {
   line-height: 1.6;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.actions i {
-  font-size: 1.2rem;
-  cursor: pointer;
-}
 
 .products-content {
   display: grid;
@@ -101,11 +116,25 @@ nav ul li a {
   margin-top: 2rem;
 }
 
+.products-details {
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
 .products-details img {
   width: 100%;
   height: 350px; 
   object-fit: cover;
   border-radius: 5px;
+   transition: transform 0.3s ease;
 }
 
 .products-details h3 {
@@ -122,18 +151,6 @@ nav ul li a {
   gap: 5px;
 }
 
-.products-details {
-  text-align: left;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  transition: transform 0.3s ease;
-}
-
-.products-details:hover {
-  transform: translateY(-5px);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
@@ -143,7 +160,6 @@ nav ul li a {
 
   nav ul {
     flex-direction: column;
-    align-items: center;
     margin-top: 10px;
   }
 
@@ -152,16 +168,12 @@ nav ul li a {
   }
 
   .products-content {
-    grid-template-columns: repeat(1fr)
+    grid-template-columns: 1fr
   }
 }
 
 @media (max-width: 480px) {
   .hero h2 {
     font-size: 1.2rem;
-  }
-
-  .products-content {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
